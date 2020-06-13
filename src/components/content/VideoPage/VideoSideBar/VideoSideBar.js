@@ -9,10 +9,10 @@ class VideoSideBar extends Component {
   }
   render() {
     return (
-      <Fragment>
+      <div className="suggested-video">
         <VideoThumbNail />
         <VideoThumbNailInfo />
-      </Fragment>
+      </div>
     );
   }
 }

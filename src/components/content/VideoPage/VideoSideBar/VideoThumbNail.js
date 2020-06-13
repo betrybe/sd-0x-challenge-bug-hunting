@@ -7,10 +7,10 @@ class VideoThumbNail extends Component {
   }
   render() {
     return (
-      <div className="suggested-video">
-        <img src="./assets/cabin.jpg" alt="cabin" />
-        <span>17:30</span>
-      </div>
+        <div class="thumbnail">
+          <img src="./assets/cabin.jpg" alt="cabin" />
+          <span>17:30</span>
+        </div>
     );
   }
 }
