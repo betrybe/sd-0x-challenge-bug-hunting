@@ -20,18 +20,13 @@ class App extends Component {
 
 
   async handleSubmitSearch() {
-    try {
-      const response = await searchVideos(this.state.searchInput);
-      this.setState({ videoData: response.items });
+    const response = await searchVideos(this.state.searchInput);
+    this.setState({ videoData: response.items });
 
-    } catch (error) {
-      console.log(error)
-    }
   }
 
   handleSearchInput(event) {
     this.setState({ searchInput: event.target.value });
-    console.log(this.state.searchInput)
   }
 
   render() {
@@ -41,12 +36,13 @@ class App extends Component {
           handleSearchInput={this.handleSearchInput}
           handleSubmit={this.handleSubmitSearch}
         />
-        <Switch>
+        <VideoPage videoData={this.state.videoData} videoId="Lf-m1puDxZs"/>
+        {/* <Switch>
           <Route
             exact path='/watch/:videoId'
             render={props => <VideoPage {...props} />}
           />
-        </Switch>
+        </Switch> */}
       </div >
     );
   }

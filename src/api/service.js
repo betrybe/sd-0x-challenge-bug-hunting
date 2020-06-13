@@ -3,14 +3,17 @@ const YOUTUBE_AUTH_KEY = "AIzaSyAqEfg3JwEepzEByc5upmXxDt6Lkdfmmj0"
 
 
 export const searchVideos = async (searchText) => {
-  const URL = `${YOUTUBE_API_URL}/search?part=snippet&q=${searchText}&maxResults=25&key=${YOUTUBE_AUTH_KEY}`
+  const URL = `${YOUTUBE_API_URL}/search?part=snippet&q=${searchText}&maxResults=25&key=${YOUTUBE_AUTH_KEY}`;
 
-  return fetch(URL).then(data => data.json())
+  return fetch(URL).then(data => data.json());
 }
 
 
 export const getVideoInfo = async (videoId) => {
+  const urlParams = `part=snippet%2CcontentDetails%2Cstatistics&id=Lf-m1puDxZs&key=${YOUTUBE_AUTH_KEY}`;
+  const URL =`${YOUTUBE_API_URL}/videos?${urlParams}`;
 
+  return fetch(URL).then(data => data.json());
 }
 
 
