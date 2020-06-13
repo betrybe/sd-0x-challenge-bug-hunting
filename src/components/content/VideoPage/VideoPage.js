@@ -14,27 +14,30 @@ class VideoPage extends Component {
     this.state = {
       videoId: videoId,
       relatedVideos: videoData,
-      videoInfo: null
+      videoInfo: null,
+      videoComments: null
     }
   }
 
   componentDidMount() {
-    getVideoInfo()
+    getVideoInfo() // add video Id commng from router
       .then(data =>
         this.setState({ videoInfo: data.items[0] })
       );
 
-
-
+    getVideoComments() // add video ID commin from router
+      .then(data =>
+        this.setState({ videoComments: data.items })
+      )
 
   }
-
 
 
   render() {
     console.log(this.state)
 
-    if (!this.state.videoInfo) return <main></main>
+    if (!this.state.videoInfo || !this.state.videoComments) return <main></main>
+    
     return (
       <main>
         <section className="player">
@@ -48,7 +51,10 @@ class VideoPage extends Component {
             description={this.state.videoInfo.snippet.description}
             publishedAt={this.state.videoInfo.snippet.publishedAt}
           />
-          <VideoPlayerComments />
+          <VideoPlayerComments
+            statisticsInfo={this.state.videoInfo.statistics}
+            videoComments={this.state.videoComments}
+          />
         </section>
         <section className="sidebar">
           <VideoSideBar />

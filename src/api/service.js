@@ -19,5 +19,8 @@ export const getVideoInfo = async (videoId) => {
 
 
 export const getVideoComments = async (videoId) => {
+  const urlParams = `part=snippet&videoId=Lf-m1puDxZs&textFormat=plainText&key=${YOUTUBE_AUTH_KEY}`;
+  const URL = `${YOUTUBE_API_URL}/commentThreads?${urlParams}`
 
+  return fetch(URL).then(data => data.json());
 }
