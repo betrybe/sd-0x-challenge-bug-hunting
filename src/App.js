@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/header/Header';
 import VideoPage from './components/content/VideoPage/VideoPage';
 import { searchVideos } from './api/service'
+import { Switch, Route } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -14,14 +15,18 @@ class App extends Component {
     }
 
     this.handleSearchInput = this.handleSearchInput.bind(this) // remover e tornar um bug
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmitSearch = this.handleSubmitSearch.bind(this)
   }
 
 
-  async handleSubmit() {
-    const response = await searchVideos(this.state.searchInput);
-    console.log(response)
-    // this.setState({ videoData: response.data });
+  async handleSubmitSearch() {
+    try {
+      const response = await searchVideos(this.state.searchInput);
+      this.setState({ videoData: response.items });
+
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   handleSearchInput(event) {
@@ -34,10 +39,15 @@ class App extends Component {
       <div className="App">
         <Header
           handleSearchInput={this.handleSearchInput}
-          handleSubmit={this.handleSubmit}
+          handleSubmit={this.handleSubmitSearch}
         />
-        {this.state.loading ? null : <VideoPage />}
-      </div>
+        <Switch>
+          <Route
+            exact path='/watch/:videoId'
+            render={props => <VideoPage {...props} />}
+          />
+        </Switch>
+      </div >
     );
   }
 }
