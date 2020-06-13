@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import '../../../../css/chanelInfo.css';
+
 class VideoPlayer extends Component {
   render() {
     return ( 

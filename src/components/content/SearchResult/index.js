@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import VideoCard from './VideoCard/VideoCard';
 
 import { searchVideos } from '../../../api/service';
 
@@ -12,14 +13,15 @@ class SearchResult extends Component {
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     const {
       params: { searchParam },
     } = this.props.match;
 
     try {
-      const response = await searchVideos(searchParam);
-      this.setState({ data: response.items });
+      searchVideos(searchParam).then((data) => {
+        this.setState({ data: data.items });
+      });
     } catch (error) {
       this.setState({ error: error });
     }
@@ -36,10 +38,15 @@ class SearchResult extends Component {
   render() {
     const { data } = this.state;
 
+    console.log(data);
+
     return (
       <div>
         {this.renderLoading()}
-        Olar
+
+        {data.map((item) => (
+          <VideoCard video={item} key={item.etag} />
+        ))}
       </div>
     );
   }
