@@ -43,7 +43,11 @@ class VideoPage extends Component {
             statisticsInfo={this.state.videoInfo.statistics}
             title={this.state.videoInfo.snippet.title}
           />
-          <VideoPlayerDescription />
+          <VideoPlayerDescription
+            channelTitle={this.state.videoInfo.snippet.channelTitle}
+            description={this.state.videoInfo.snippet.description}
+            publishedAt={this.state.videoInfo.snippet.publishedAt}
+          />
           <VideoPlayerComments />
         </section>
         <section className="sidebar">
