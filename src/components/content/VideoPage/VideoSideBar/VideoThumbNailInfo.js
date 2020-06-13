@@ -7,10 +7,10 @@ class VideoThumbNailInfo extends Component {
   }
   render() {
     return (
-      <div class="thumbnail-info">
+      <div className="thumbnail-info">
         <h2>Night Photography: Finding your way in the dark</h2>
-        <div class="channel">7th Era</div>
-        <div class="views">792K views</div>
+        <div className="channel">7th Era</div>
+        <div className="views">792K views</div>
       </div>
     );
   }

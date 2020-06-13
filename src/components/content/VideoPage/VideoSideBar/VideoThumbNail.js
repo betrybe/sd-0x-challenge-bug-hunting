@@ -7,7 +7,7 @@ class VideoThumbNail extends Component {
   }
   render() {
     return (
-        <div class="thumbnail">
+        <div className="thumbnail">
           <img src="./assets/cabin.jpg" alt="cabin" />
           <span>17:30</span>
         </div>
