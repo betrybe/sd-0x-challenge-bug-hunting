@@ -19,7 +19,7 @@ class VideoPlayerUsersComments extends Component {
   render() {
 
     const { videoComments } = this.props;
-    console.log(videoComments)
+    // authorProfileImageUrl
     return (
       <Fragment>
         {

@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 
 class VideoThumbNail extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {}
-  }
   render() {
+    const { videoId, imageSource } = this.props;
     return (
-        <div className="thumbnail">
-          <img src="./assets/cabin.jpg" alt="cabin" />
-          <span>17:30</span>
-        </div>
+      <div className="thumbnail">
+        <img src={imageSource} alt="cabin" key={videoId} />
+        {/* <span>17:30</span> */}
+      </div>
     );
   }
 }

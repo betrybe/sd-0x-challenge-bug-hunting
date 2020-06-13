@@ -34,10 +34,8 @@ class VideoPage extends Component {
 
 
   render() {
-    console.log(this.state)
-
     if (!this.state.videoInfo || !this.state.videoComments) return <main></main>
-    
+
     return (
       <main>
         <section className="player">
@@ -57,7 +55,7 @@ class VideoPage extends Component {
           />
         </section>
         <section className="sidebar">
-          <VideoSideBar />
+          <VideoSideBar relatedVideos={this.state.relatedVideos}/>
         </section>
       </main>
     );

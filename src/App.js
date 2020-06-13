@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       loading: true,
       searchInput: '',
-      videoData: []
+      videoData: null
     }
 
     this.handleSearchInput = this.handleSearchInput.bind(this) // remover e tornar um bug
@@ -36,7 +36,7 @@ class App extends Component {
           handleSearchInput={this.handleSearchInput}
           handleSubmit={this.handleSubmitSearch}
         />
-        <VideoPage videoData={this.state.videoData} videoId="Lf-m1puDxZs"/>
+        {this.state.videoData ? <VideoPage videoData={this.state.videoData} videoId="Lf-m1puDxZs"/> : null}
         {/* <Switch>
           <Route
             exact path='/watch/:videoId'
@@ -49,23 +49,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-
-
-
-
-// etag: "riV1O4itc9zuPPV64bGVI_5ug1A"
-// id: "UgxIk11ciF1oakTCSeh4AaABAg"
-// kind: "youtube#commentThread"
-// snippet:
-// canReply: true
-// isPublic: true
-// topLevelComment:
-// etag: "bUb4GppLsUk3SsSq6EOupRTpdAw"
-// id: "UgxIk11ciF1oakTCSeh4AaABAg"
-// kind: "youtube#comment"
-// snippet: {videoId: "Lf-m1puDxZs", textDisplay: "Ficou show demais a matéria!!!!↵Orgulho demais de fazer parte desse momento s2", textOriginal: "Ficou show demais a matéria!!!!↵Orgulho demais de fazer parte desse momento s2", authorDisplayName: "EddyeBoy Gamer", authorProfileImageUrl: "https://yt3.ggpht.com/a/AATXAJyur8uJC6EJ-lNjcMG7vAgZHyx3HuXnZ9X8-w=s48-c-k-c0xffffffff-no-rj-mo", …}
-// __proto__: Object
-// totalReplyCount: 1
-// videoId: "Lf-m1puDxZs"
