@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       loading: true,
       searchInput: '',
-      videoData: []
+      videoData: null
     }
 
     this.handleSearchInput = this.handleSearchInput.bind(this) // remover e tornar um bug
@@ -20,18 +20,13 @@ class App extends Component {
 
 
   async handleSubmitSearch() {
-    try {
-      const response = await searchVideos(this.state.searchInput);
-      this.setState({ videoData: response.items });
+    const response = await searchVideos(this.state.searchInput);
+    this.setState({ videoData: response.items });
 
-    } catch (error) {
-      console.log(error)
-    }
   }
 
   handleSearchInput(event) {
     this.setState({ searchInput: event.target.value });
-    console.log(this.state.searchInput)
   }
 
   render() {
@@ -41,12 +36,13 @@ class App extends Component {
           handleSearchInput={this.handleSearchInput}
           handleSubmit={this.handleSubmitSearch}
         />
-        <Switch>
+        {this.state.videoData ? <VideoPage videoData={this.state.videoData} videoId="Lf-m1puDxZs"/> : null}
+        {/* <Switch>
           <Route
             exact path='/watch/:videoId'
             render={props => <VideoPage {...props} />}
           />
-        </Switch>
+        </Switch> */}
       </div >
     );
   }

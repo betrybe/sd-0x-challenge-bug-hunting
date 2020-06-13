@@ -1,16 +1,13 @@
 import React, { Component, Fragment } from 'react';
 
 class VideoPlayerCommentsInfo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {}
-  }
   render() {
+    const { statisticsInfo } = this.props;
     return (
       <Fragment>
         <div className="comment-toolbar">
           <div className="comment-count">
-            <span>2,957</span>
+            <span>{statisticsInfo.commentCount} </span>
             <span>Comments</span>
           </div>
           <div className="comment-count">
