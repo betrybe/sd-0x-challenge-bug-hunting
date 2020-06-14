@@ -5,15 +5,12 @@ import VideoPlayerUserComments from './VideoPlayerUsersComments';
 import '../../../../css/comments.css';
 
 class VideoPlayerComments extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {}
-  }
   render() {
+    const { statisticsInfo, videoComments } = this.props;
     return (
       <section className="comments">
-        <VideoPlayerCommentsInfo />
-        <VideoPlayerUserComments />
+        <VideoPlayerCommentsInfo statisticsInfo={statisticsInfo}/>
+        <VideoPlayerUserComments videoComments={videoComments}/>
       </section>
     );
   }
