@@ -8,6 +8,7 @@ import Header from './components/header/Header';
 import VideoPage from './components/content/VideoPage/VideoPage';
 import SearchResult from './components/content/SearchResult';
 import NotFound from './components/content/NotFound';
+import InitialPage from './components/content/InitialPage';
 
 class App extends Component {
   render() {
@@ -15,8 +16,8 @@ class App extends Component {
       <div className="App">
         <Header />
         <Switch>
+          <Route exact path="/"><InitialPage /></Route>
           <Route
-            exact
             path="/watch/:videoId"
             render={(props) => <VideoPage {...props} />}
           />
