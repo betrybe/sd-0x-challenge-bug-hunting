@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import VideoPlayerCommentsInfo from './VideoPlayerCommentsInfo';
 import VideoPlayerUserComments from './VideoPlayerUsersComments';
 
+import '../../../../css/comments.css';
 
 class VideoPlayerComments extends Component {
   render() {

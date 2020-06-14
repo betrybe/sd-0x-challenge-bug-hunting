@@ -1,27 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
+
 import Menu from './Menu';
 import SearchBar from './SearchBar';
 import ProfileFeatures from './ProfileFeatures';
 
-class Header extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
-    }
-    render() {
-        const { handleSearchInput, handleSubmit } = this.props;
+import '../../css/navbar.css';
 
-        return (
-            <nav className="nav">
-                <Menu />
-                <SearchBar
-                    onChangeSearchInput={handleSearchInput}
-                    onClickHandleSubmit={handleSubmit}
-                />
-                <ProfileFeatures />
-            </nav>
-        );
-    }
-}
+const Header = () => {
+  return (
+    <nav className="nav">
+      <Menu />
+      <SearchBar />
+      <ProfileFeatures />
+    </nav>
+  );
+};
 
 export default Header;

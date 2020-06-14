@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import VideoThumbNail from './VideoThumbNail';
 import VideoThumbNailInfo from './VideoThumbNailInfo';
 
+import '../../../../css/sideBar.css';
+
 class VideoSideBar extends Component {
   render() {
     const { relatedVideos } = this.props;

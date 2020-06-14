@@ -1,51 +1,34 @@
 import React, { Component } from 'react';
-import './App.css';
-import Header from './components/header/Header';
-import VideoPage from './components/content/VideoPage/VideoPage';
-import { searchVideos } from './api/service'
 import { Switch, Route } from 'react-router-dom';
 
+import './App.css';
+import './css/mainContents.css';
+
+import Header from './components/header/Header';
+import VideoPage from './components/content/VideoPage/VideoPage';
+import SearchResult from './components/content/SearchResult';
+import NotFound from './components/content/NotFound';
+
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      loading: true,
-      searchInput: '',
-      videoData: null
-    }
-
-    this.handleSearchInput = this.handleSearchInput.bind(this) // remover e tornar um bug
-    this.handleSubmitSearch = this.handleSubmitSearch.bind(this)
-  }
-
-
-  async handleSubmitSearch() {
-    const response = await searchVideos(this.state.searchInput);
-    this.setState({ videoData: response.items });
-
-  }
-
-  handleSearchInput(event) {
-    this.setState({ searchInput: event.target.value });
-  }
-
   render() {
     return (
       <div className="App">
-        <Header
-          handleSearchInput={this.handleSearchInput}
-          handleSubmit={this.handleSubmitSearch}
-        />
-        {this.state.videoData ? <VideoPage videoData={this.state.videoData} videoId="Lf-m1puDxZs"/> : null}
-        {/* <Switch>
+        <Header />
+        <Switch>
           <Route
-            exact path='/watch/:videoId'
-            render={props => <VideoPage {...props} />}
+            exact
+            path="/watch/:videoId"
+            render={(props) => <VideoPage {...props} />}
           />
-        </Switch> */}
-      </div >
+          <Route
+            path="/results/:searchParam"
+            render={(props) => <SearchResult {...props} />}
+          />
+          <Route path="*"><NotFound /></Route>
+        </Switch>
+      </div>
     );
   }
-}
+};
 
 export default App;
