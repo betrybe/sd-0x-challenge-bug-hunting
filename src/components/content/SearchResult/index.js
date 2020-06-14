@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import VideoCard from './VideoCard/VideoCard';
+import { Link } from 'react-router-dom';
 
 import { searchVideos } from '../../../api/service';
 
@@ -45,7 +46,10 @@ class SearchResult extends Component {
         {this.renderLoading()}
 
         {data.map((item) => (
-          <VideoCard video={item} key={item.etag} />
+          <Link to={{
+            pathname: `/watch/${item.id.videoId}`,
+            state: { data: data }
+          }}><VideoCard video={item} key={item.etag} /></Link>
         ))}
       </div>
     );

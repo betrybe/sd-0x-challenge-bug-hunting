@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import VideoThumbNail from './VideoThumbNail';
 import VideoThumbNailInfo from './VideoThumbNailInfo';
 

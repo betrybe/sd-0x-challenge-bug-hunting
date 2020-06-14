@@ -9,32 +9,25 @@ import { getVideoInfo, getVideoComments } from './../../../api/service';
 class VideoPage extends Component {
   constructor(props) {
     super(props);
-    const { videoData, videoId } = this.props;
-
     this.state = {
-      videoId: videoId,
-      relatedVideos: videoData,
+      videoId: this.props.match.params.videoId,
+      relatedVideos: this.props.location.state.data,
       videoInfo: null,
-      videoComments: null
-    }
+      videoComments: null,
+    };
   }
 
   componentDidMount() {
-    getVideoInfo() // add video Id commng from router
-      .then(data =>
-        this.setState({ videoInfo: data.items[0] })
-      );
+    getVideoInfo(this.state.videoId) // add video Id commng from router
+      .then((data) => this.setState({ videoInfo: data.items[0] }));
 
-    getVideoComments() // add video ID commin from router
-      .then(data =>
-        this.setState({ videoComments: data.items })
-      )
-
+    getVideoComments(this.state.videoId) // add video ID commin from router
+      .then((data) => this.setState({ videoComments: data.items }));
   }
 
-
   render() {
-    if (!this.state.videoInfo || !this.state.videoComments) return <main></main>
+    if (!this.state.videoInfo || !this.state.videoComments)
+      return <main></main>;
 
     return (
       <main>
@@ -55,7 +48,7 @@ class VideoPage extends Component {
           />
         </section>
         <section className="sidebar">
-          <VideoSideBar relatedVideos={this.state.relatedVideos}/>
+          <VideoSideBar relatedVideos={this.state.relatedVideos} />
         </section>
       </main>
     );
