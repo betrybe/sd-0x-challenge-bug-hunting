@@ -3,6 +3,7 @@ import VideoCard from './VideoCard/VideoCard';
 import { Link } from 'react-router-dom';
 
 import { searchVideos } from '../../../api/service';
+import '../../../css/sideBar.css';
 
 class SearchResult extends Component {
   constructor(props) {
@@ -46,10 +47,10 @@ class SearchResult extends Component {
         {this.renderLoading()}
 
         {data.map((item) => (
-          <Link to={{
+          <Link className="thumbnail-card" to={{
             pathname: `/watch/${item.id.videoId}`,
             state: { data: data }
-          }}><VideoCard video={item} key={item.etag} /></Link>
+          }}><VideoCard video={item} key={item.id.videoId} /></Link>
         ))}
       </div>
     );

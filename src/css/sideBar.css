@@ -33,6 +33,7 @@
 
 .suggested-video .thumbnail-info h2 {
   margin-bottom: 0.4rem;
+  text-decoration: none;
 }
 
 .suggested-video h2 {
@@ -46,4 +47,9 @@
   font-weight: bold;
   letter-spacing: 0.001rem;
   line-height: 1.3;
+  text-decoration: none;
+}
+
+.thumbnail-card {
+  text-decoration: none;
 }
