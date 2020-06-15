@@ -1,5 +1,5 @@
 let YOUTUBE_API_URL = 'https://www.googleapis.com/youtube/v3';
-const YOUTUBE_AUTH_KEY = 'AIzaSyBZTxsnqdAX6Hitwdp2TVdK7qw1dcyFeZw';
+const YOUTUBE_AUTH_KEY = 'AIzaSyBx5ZgU01Bf1saJZkglJvIHz3V3g87URxg';
 
 export const searchVideos = async (searchText) => {
   const URL = `${YOUTUBE_API_URL}/search?part=snippet&q=${searchText}&maxResults=25&key=${YOUTUBE_AUTH_KEY}`;
