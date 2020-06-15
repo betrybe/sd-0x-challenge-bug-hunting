@@ -47,10 +47,10 @@ class SearchResult extends Component {
         {this.renderLoading()}
 
         {data.map((item) => (
-          <Link className="thumbnail-card" to={{
+          <Link className="thumbnail-card" key={item.etag} to={{
             pathname: `/watch/${item.id.videoId}`,
             state: { data: data }
-          }}><VideoCard video={item} key={item.id.videoId} /></Link>
+          }}><VideoCard video={item} /></Link>
         ))}
       </div>
     );
