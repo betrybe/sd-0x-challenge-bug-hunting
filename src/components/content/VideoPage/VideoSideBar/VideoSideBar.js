@@ -6,7 +6,7 @@ import '../../../../css/sideBar.css';
 
 class VideoSideBar extends Component {
   render() {
-    const { relatedVideos } = this.props;
+    const { relatedVideos, handleSelectedVideo } = this.props;
     return (
       <Fragment>
         {relatedVideos.map((video) => (
@@ -14,6 +14,7 @@ class VideoSideBar extends Component {
             <VideoThumbNail
               videoId={video.id.videoId}
               imageSource={video.snippet.thumbnails.medium.url}
+              handleSelectedVideo={handleSelectedVideo}
             />
             <VideoThumbNailInfo
               title={video.snippet.title}
