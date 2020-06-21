@@ -15,6 +15,8 @@ class VideoPage extends Component {
       videoInfo: null,
       videoComments: null,
     };
+
+    this.handleSelectedVideo = this.handleSelectedVideo.bind(this)
   }
 
   componentDidMount() {
@@ -23,6 +25,20 @@ class VideoPage extends Component {
 
     getVideoComments(this.state.videoId) // add video ID commin from router
       .then((data) => this.setState({ videoComments: data.items }));
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if(this.state.videoId !== prevState.videoId){
+      getVideoInfo(this.state.videoId) // add video Id commng from router
+      .then((data) => this.setState({ videoInfo: data.items[0] }));
+
+      getVideoComments(this.state.videoId) // add video ID commin from router
+      .then((data) => this.setState({ videoComments: data.items }));
+    }
+  }
+
+  handleSelectedVideo(videoId){
+    this.setState({videoId: videoId})
   }
 
   render() {
@@ -48,7 +64,7 @@ class VideoPage extends Component {
           />
         </section>
         <section className="sidebar">
-          <VideoSideBar relatedVideos={this.state.relatedVideos} />
+          <VideoSideBar relatedVideos={this.state.relatedVideos} handleSelectedVideo={this.handleSelectedVideo} />
         </section>
       </main>
     );

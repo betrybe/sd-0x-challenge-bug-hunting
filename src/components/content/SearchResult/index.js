@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import VideoCard from './VideoCard/VideoCard';
 import { Link } from 'react-router-dom';
 
-import { searchVideos } from '../../../api/service';
 import '../../../css/sideBar.css';
+
+import { searchVideos } from '../../../api/service';
+
+
+// import searchVideos from '../../../../__tests__/mocks/mockSearchVideo'
+
+
+
 
 class SearchResult extends Component {
   constructor(props) {
@@ -20,31 +27,19 @@ class SearchResult extends Component {
       params: { searchParam },
     } = this.props.match;
 
-    try {
-      searchVideos(searchParam).then((data) => {
-        this.setState({ data: data.items });
-      });
-    } catch (error) {
-      this.setState({ error: error });
-    }
-  }
+    searchVideos(searchParam).then((data) => {
+      this.setState({ data: data.items });
+    });
 
-  renderLoading() {
-    const { data } = this.state;
-
-    if (!data.length) return <div>Loading...</div>;
-
-    return null;
   }
 
   render() {
     const { data } = this.state;
 
-    console.log(data);
+    if (data.length < 1) return (<div>Loading...</div>)
 
     return (
       <div>
-        {this.renderLoading()}
 
         {data.map((item) => (
           <Link className="thumbnail-card" key={item.etag} to={{
