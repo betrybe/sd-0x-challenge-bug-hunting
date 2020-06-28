@@ -9,6 +9,7 @@ import { getVideoInfo, getVideoComments } from './../../../api/service';
 class VideoPage extends Component {
   constructor(props) {
     super(props);
+    console.log(this.props.match)
     this.state = {
       videoId: this.props.match.params.videoId,
       relatedVideos: this.props.location.state.data,
