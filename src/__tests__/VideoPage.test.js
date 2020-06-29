@@ -36,8 +36,8 @@ function renderWithRouter(ui, routeConfigs = {}) {
   };
 }
 
-describe('Video Page', () => {
-  it('Renders video data on page', async () => {
+describe('Funcionalidades Componente Video Page', () => {
+  it('Renderiza dados no video na página', async () => {
     const randomVideoID = mockSearchVideo.items[1].id.videoId;
 
     renderWithRouter(
@@ -57,7 +57,7 @@ describe('Video Page', () => {
   })
 
 
-  it('Selected video event changes video display', async () => {
+  it('Video selecionado atualiza os dados do video atual na pagina', async () => {
     const randomVideoID = mockSearchVideo.items[1].id.videoId;
     const { history } = renderWithRouter(
       <VideoPage

@@ -28,15 +28,15 @@ function renderWithRouter(ui, routeConfigs = {}) {
   };
 }
 
-describe('Header', () => {
-  it('Show All Links', () => {
+describe('Funcionalidades Componente Header', () => {
+  it('Renderiza apenas um link na tela', () => {
     const { container } = renderWithRouter(<App />)
     const links = container.querySelectorAll('a')
     expect(links.length).toBe(1)
     expect(links[0].href).toMatch('/results')
   })
 
-  it('Search redirects to search page', async () => {
+  it('Ao fazer uma busca redireciona a página de resultados', async () => {
     const { getByRole, getByPlaceholderText, history } = renderWithRouter(<App />);
     expect(history.location.pathname).toBe('/')
 

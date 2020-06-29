@@ -13,8 +13,8 @@ function renderWithRouter(ui, routeConfigs = {}) {
   };
 }
 
-describe('Initial Page', () => {
-  it('renders without crashing', () => {
+describe('Renderizar toda aplicaçao existente', () => {
+  it('Renderiza sem crash', () => {
     renderWithRouter(<App />)
   });
 });

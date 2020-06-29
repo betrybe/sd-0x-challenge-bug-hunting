@@ -8,7 +8,7 @@ import '../../../../css/sideBar.css';
 
 class VideoSideBar extends Component {
   render() {
-    const { relatedVideos, handleSelectedVideo } = this.props; // use function instead of link
+    const { relatedVideos, handleSelectedVideo } = this.props; // bug 5 use function instead of link
     return (
       <Fragment>
         {relatedVideos.map((video) => (
