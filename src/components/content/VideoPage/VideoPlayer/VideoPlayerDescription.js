@@ -20,7 +20,7 @@ class VideoPlayerDescription extends Component {
     const { channelTitle, description, publishedAt } = this.props
   
     return (
-      <section className="channel-info">
+      <section data-testid='channelinfo' className="channel-info">
         <div className="avatar">
           <div></div>
         </div>

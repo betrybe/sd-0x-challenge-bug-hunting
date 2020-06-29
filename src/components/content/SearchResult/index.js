@@ -3,10 +3,7 @@ import VideoCard from './VideoCard/VideoCard';
 import { Link } from 'react-router-dom';
 
 import '../../../css/sideBar.css';
-
 import { searchVideos } from '../../../api/service';
-
-// import searchVideos from '../../../../__tests__/mocks/mockSearchVideo'
 
 class SearchResult extends Component {
   constructor(props) {
@@ -23,10 +20,9 @@ class SearchResult extends Component {
       params: { searchParam },
     } = this.props.match;
 
-    searchVideos(searchParam).then((data) => {
-      this.setState({ data: data.items });
+    searchVideos(searchParam).then((data) => { // remvoe this filter
+      this.setState({ data: data.items.filter(x => x.id.kind !== 'youtube#channel') });
     });
-
   }
 
   render() {

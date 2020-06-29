@@ -3,6 +3,10 @@
   margin: 1rem 0;
 }
 
+.suggested-video:hover {
+  cursor: pointer;
+}
+
 .suggested-video .thumbnail {
   margin-right: 1rem;
   position: relative;
@@ -52,4 +56,9 @@
 
 .thumbnail-card {
   text-decoration: none;
+}
+
+.link {
+   color: black;
+   text-decoration: none;
 }

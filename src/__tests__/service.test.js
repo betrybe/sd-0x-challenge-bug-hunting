@@ -62,7 +62,7 @@ describe('Youtube API Service', () => {
       ).toHaveBeenCalledWith(
         expect.stringMatching(/https:\/\/www.googleapis.com\/youtube\/v3\/commentThreads/)
       );
-      expect(global.fetch).toHaveBeenCalledWith(expect.stringMatching(videoId))
+      expect(global.fetch).toHaveBeenCalledWith(expect.stringMatching(videoId));
       expect(videos).toStrictEqual(mockGetVideoComments);
     });
   });

@@ -39,22 +39,23 @@ function renderWithRouter(ui, routeConfigs = {}) {
 
 describe('Search Result', () => {
   it('renders list of videos', async () => {
-    renderWithRouter(<SearchResult match={{ params: { searchParam: 'bugs' } }} />)
-
-    await waitFor(() => expect(api.searchVideos).toHaveBeenCalled())
-    expect(screen.getAllByRole('link').length).toEqual(mockSearchVideo.items.length)
+    renderWithRouter(<SearchResult match={{ params: { searchParam: 'bugs' } }} />);
+    // excluir channel da listagem.
+    await waitFor(() => expect(api.searchVideos).toHaveBeenCalled());
+    expect(screen.getAllByRole('link').length).toBeLessThan(mockSearchVideo.items.length);
   })
 
   it('click on video redirects to video page', async () => {
-    const { history } = renderWithRouter(<SearchResult match={{ params: { searchParam: 'bugs' } }} />)
-    await waitFor(() => expect(api.searchVideos).toHaveBeenCalled())
-    fireEvent.click(screen.getAllByRole('link')[1]) // bug 1 nao tem video id é channel
+    const { history } = renderWithRouter(<App />, { route: '/results/bugs' });
+    await waitFor(() => expect(api.searchVideos).toHaveBeenCalled());
 
-    // await waitFor(() => expect(api.getVideoInfo).toHaveBeenCalled())
-    // await waitFor(() => expect(api.mockGetVideoComments).toHaveBeenCalled())
-    // screen.debug()
-    console.log(history)
+    const videoLink = screen.getAllByRole('link')[1];
+    fireEvent.click(videoLink); // bug 1 nao tem video id é channel
+    expect(history.location.pathname).toMatch(/watch/i);
+
+    await waitFor(() => expect(api.getVideoInfo).toHaveBeenCalled());
+    await waitFor(() => expect(api.getVideoComments).toHaveBeenCalled());
+  
+    expect(screen.getByTestId('videoplayer')).toBeInTheDocument();
   })
-
-
 })

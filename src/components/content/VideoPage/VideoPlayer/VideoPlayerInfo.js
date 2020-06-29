@@ -5,7 +5,7 @@ class VideoPlayerInfo extends Component {
   render() {
     const { title, statisticsInfo } = this.props;
     return (
-      <div className="video-info">
+      <div data-testid='videoinfo' className="video-info">
         <h1 className="title">
           {title}
         </h1>

@@ -1,9 +1,8 @@
 import React from 'react';
-import { render, screen, fireEvent, getByRole, waitFor } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import App from '../App';
-import Menu from '../components/header/Menu';
 import mockSearchVideo from '../__mocks__/mockSearchVideo';
 import * as api from '../api/service'
 
@@ -29,29 +28,24 @@ function renderWithRouter(ui, routeConfigs = {}) {
   };
 }
 
-
 describe('Header', () => {
-  it('All links exist', () => {
+  it('Show All Links', () => {
     const { container } = renderWithRouter(<App />)
     const links = container.querySelectorAll('a')
     expect(links.length).toBe(1)
     expect(links[0].href).toMatch('/results')
   })
 
-  it('Search link redirect to search page', async () => {
-
+  it('Search redirects to search page', async () => {
     const { getByRole, getByPlaceholderText, history } = renderWithRouter(<App />);
-
     expect(history.location.pathname).toBe('/')
 
     const searchText = 'bugs';
     fireEvent.change(getByPlaceholderText(/search/i), { target: { value: searchText } })
     fireEvent.click(getByRole('link'))
 
-    await waitFor(() => expect(api.searchVideos).toHaveBeenCalled())
+    await waitFor(() => expect(api.searchVideos).toHaveBeenCalled());
+    expect(history.location.pathname).toBe(`/results/${searchText}`);
 
-    expect(history.location.pathname).toBe(`/results/${searchText}`)
-
-  })
-
+  });
 })

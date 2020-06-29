@@ -68,7 +68,6 @@
 }
 
 .material-icons:hover,
-button:hover,
-img:hover {
+button:hover {
   cursor: pointer;
 }

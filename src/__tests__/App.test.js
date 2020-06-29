@@ -16,5 +16,5 @@ function renderWithRouter(ui, routeConfigs = {}) {
 describe('Initial Page', () => {
   it('renders without crashing', () => {
     renderWithRouter(<App />)
-  })
-})
+  });
+});
