@@ -8,7 +8,7 @@ class VideoPlayerComments extends Component {
   render() {
     const { statisticsInfo, videoComments } = this.props;
     return (
-      <section className="comments">
+      <section data-testid='comments' className="comments">
         <VideoPlayerCommentsInfo statisticsInfo={statisticsInfo}/>
         <VideoPlayerUserComments videoComments={videoComments}/>
       </section>

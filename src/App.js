@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import './App.css';
 import './css/mainContents.css';
@@ -13,21 +13,23 @@ import InitialPage from './components/content/InitialPage';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header />
-        <Switch>
-          <Route exact path="/"><InitialPage /></Route>
-          <Route
-            path="/watch/:videoId"
-            render={(props) => <VideoPage {...props} />}
-          />
-          <Route
-            path="/results/:searchParam"
-            render={(props) => <SearchResult {...props} />}
-          />
-          <Route path="*"><NotFound /></Route>
-        </Switch>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <Switch>
+            <Route exact path="/"><InitialPage /></Route> {/*Remove o exact as bug*/}
+            <Route
+              exact path="/watch/:videoId"
+              render={(props) => <VideoPage {...props} />}
+            />
+            <Route
+              exact path="/results/:searchParam"
+              render={(props) => <SearchResult {...props} />}
+            />
+            <Route path="*"><NotFound /></Route>
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 };
