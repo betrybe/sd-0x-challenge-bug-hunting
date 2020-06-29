@@ -34,6 +34,7 @@ exclude_patterns:
 - "src/serviceWorker.js"
 - "src/index.css"
 - "src/__tests__/"
+- "src/__mocks__/"
 plugins:
   csslint:
     enabled: true

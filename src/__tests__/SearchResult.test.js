@@ -38,7 +38,7 @@ function renderWithRouter(ui, routeConfigs = {}) {
 }
 
 describe('Funcionalidades Componente Search Result', () => {
-  it('Renderiza uma lista de videos encima da busca', async () => {
+  it('Renderiza uma lista de videos em cima da busca', async () => {
     renderWithRouter(<SearchResult match={{ params: { searchParam: 'bugs' } }} />);
     // excluir channel da listagem.
     await waitFor(() => expect(api.searchVideos).toHaveBeenCalled());
