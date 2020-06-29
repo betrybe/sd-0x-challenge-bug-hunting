@@ -1,0 +1,18 @@
+{
+  "requirements": [{
+    "description": "Implementar módulo de acesso à API do Mercado Livre",
+    "bonus": false
+  }, {
+    "description": "Criar página de listagem de produtos vazia",
+    "bonus": false
+  }, {
+    "description": "Criar página do carrinho de compras",
+    "bonus": false
+  }, {
+    "description": "Listar as categorias de produtos disponíveis via API na página principal",
+    "bonus": false
+  }, {
+    "description": "Buscar por termos e receber uma listagem de produtos, com dados resumidos, associados a esses termos",
+    "bonus": false
+  }]
+}
