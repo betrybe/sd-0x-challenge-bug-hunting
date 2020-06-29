@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class VideoPlayerDescription extends Component {
 
-  formatDate(publishedAt){ // colocar o bug aqui de data nao formatada
+  formatDate(publishedAt){
     const dateObj = new Date(publishedAt)
 
     const monthNames = ["January", "February", "March", "April", "May", "June",
