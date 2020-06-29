@@ -37,15 +37,15 @@ function renderWithRouter(ui, routeConfigs = {}) {
   };
 }
 
-describe('Search Result', () => {
-  it('renders list of videos', async () => {
+describe('Funcionalidades Componente Search Result', () => {
+  it('Renderiza uma lista de videos encima da busca', async () => {
     renderWithRouter(<SearchResult match={{ params: { searchParam: 'bugs' } }} />);
     // excluir channel da listagem.
     await waitFor(() => expect(api.searchVideos).toHaveBeenCalled());
     expect(screen.getAllByRole('link').length).toBeLessThan(mockSearchVideo.items.length);
   })
 
-  it('click on video redirects to video page', async () => {
+  it('Ao clicar em um video redireciona a pagina de display', async () => {
     const { history } = renderWithRouter(<App />, { route: '/results/bugs' });
     await waitFor(() => expect(api.searchVideos).toHaveBeenCalled());
 

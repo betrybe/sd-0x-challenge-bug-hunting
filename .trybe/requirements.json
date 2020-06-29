@@ -1,18 +1,18 @@
 {
   "requirements": [{
-    "description": "Implementar módulo de acesso à API do Mercado Livre",
+    "description": "Implementação módulo de acesso à API do Youtube",
     "bonus": false
   }, {
-    "description": "Criar página de listagem de produtos vazia",
+    "description": "Renderizar toda aplicaçao existente",
     "bonus": false
   }, {
-    "description": "Criar página do carrinho de compras",
+    "description": "Funcionalidades Componente Header",
     "bonus": false
   }, {
-    "description": "Listar as categorias de produtos disponíveis via API na página principal",
+    "description": "Funcionalidades Componente Search Result",
     "bonus": false
   }, {
-    "description": "Buscar por termos e receber uma listagem de produtos, com dados resumidos, associados a esses termos",
+    "description": "Funcionalidades Componente Video Page",
     "bonus": false
   }]
 }

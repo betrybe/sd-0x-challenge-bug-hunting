@@ -41,7 +41,6 @@ class VideoPage extends Component {
 
   handleSelectedVideo(videoId){
     this.setState({videoId: videoId})
-    console.log(this.props)
     this.props.history.push(`/watch/${videoId}`);
   }
 

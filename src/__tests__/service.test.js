@@ -4,7 +4,7 @@ import mockGetVideoInfo from '../__mocks__/mockGetVideoInfo';
 import mockGetVideoComments from '../__mocks__/mockGetVideoComments';
 
 
-describe('Youtube API Service', () => {
+describe('Implementação módulo de acesso à API do Youtube', () => {
   test('searchVideos', () => {
     const searchText = "bugs"
 

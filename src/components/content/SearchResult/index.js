@@ -20,9 +20,9 @@ class SearchResult extends Component {
       params: { searchParam },
     } = this.props.match;
 
-    searchVideos(searchParam).then((data) => { // remvoe this filter
+    searchVideos(searchParam).then((data) => { // remvoe this filter  bug 3
       this.setState({ data: data.items.filter(x => x.id.kind !== 'youtube#channel') });
-    });
+    }).catch(error => this.setState({error: error}))
   }
 
   render() {

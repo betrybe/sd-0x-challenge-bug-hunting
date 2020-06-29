@@ -10,13 +10,11 @@ class SearchBar extends Component {
 		this.state = {
       searchInput: '',
     };
-	
-		this.handleSearchInput = this.handleSearchInput.bind(this); // remover e tornar um bug
 	}
 
   handleSearchInput(event) {
-		const { target: { value } } = event;
-    this.setState({ searchInput: value });
+		const { target: { value } } = event; // bug 2name ao inves de value
+    this.setState({ searchInput: value }); // bug 2 name ao inves de value
   }
 
   render() {
@@ -29,7 +27,7 @@ class SearchBar extends Component {
           name="search"
           id="search"
           placeholder="Search"
-          onChange={(e) => this.handleSearchInput(e)}
+          onChange={(event) => this.handleSearchInput(event)}
         />
         <div className="search-btn">
           <Link
