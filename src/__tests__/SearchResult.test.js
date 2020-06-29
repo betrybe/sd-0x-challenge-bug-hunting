@@ -40,7 +40,6 @@ function renderWithRouter(ui, routeConfigs = {}) {
 describe('Funcionalidades Componente Search Result', () => {
   it('Renderiza uma lista de videos em cima da busca', async () => {
     renderWithRouter(<SearchResult match={{ params: { searchParam: 'bugs' } }} />);
-    // excluir channel da listagem.
     await waitFor(() => expect(api.searchVideos).toHaveBeenCalled());
     expect(screen.getAllByRole('link').length).toBeLessThan(mockSearchVideo.items.length);
   })
@@ -50,7 +49,7 @@ describe('Funcionalidades Componente Search Result', () => {
     await waitFor(() => expect(api.searchVideos).toHaveBeenCalled());
 
     const videoLink = screen.getAllByRole('link')[1];
-    fireEvent.click(videoLink); // bug 1 nao tem video id é channel
+    fireEvent.click(videoLink);
     expect(history.location.pathname).toMatch(/watch/i);
 
     await waitFor(() => expect(api.getVideoInfo).toHaveBeenCalled());

@@ -28,19 +28,13 @@ class VideoPage extends Component {
       .then((data) => this.setState({ videoComments: data.items }));
   }
 
-  componentDidUpdate(prevProps, prevState){ // bug mais hard
-    if(prevProps.location.pathname !== this.props.location.pathname){
-      getVideoInfo(this.state.videoId)
+  handleSelectedVideo(videoId) {
+    this.setState({ videoId: videoId })
+    getVideoInfo(this.state.videoId)
       .then((data) => this.setState({ videoInfo: data.items[0] }));
 
-      getVideoComments(this.state.videoId) 
+    getVideoComments(this.state.videoId)
       .then((data) => this.setState({ videoComments: data.items }));
-      this.setState({videoId: this.props.match.params.videoId})
-    }
-  }
-
-  handleSelectedVideo(videoId){
-    this.setState({videoId: videoId})
     this.props.history.push(`/watch/${videoId}`);
   }
 
