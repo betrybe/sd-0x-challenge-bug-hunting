@@ -2,6 +2,7 @@
 
 A seguir estão listados todos os requisitos do projeto. Lembre-se que, alguns testes estão quebrando devido aos bugs, assim que os bugs forem resolvidos os testes devem retornar sucesso. É possível que um bug dependa da resoluçao de outro bug.
 
+- [Funcionamento](https://recordit.co/ahZsg4HUkW#) esperado
 
 ### 1. Testes do componente App
 
