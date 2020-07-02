@@ -2,9 +2,9 @@
 
 1. Clone o repositório
 
-- `git clone git@github.com:tryber/sd-04-challenge-bug-hunting.git`.
+- `git clone git@github.com:tryber/challenge-bug-hunting-squad-x.git`.
 
-2. Instale as dependências e inicialize o projeto
+1. Instale as dependências e inicialize o projeto
 
 - Instale as dependências:
   - `npm install`
@@ -41,7 +41,7 @@
 
 6. Crie um novo `Pull Request` _(PR)_
 
-- Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-04-challenge-bug-hunting.git./pulls)
+- Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/challenge-bug-hunting-squad-x.git./pulls)
 - Clique no botão verde _"New pull request"_
 - Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
 - Clique no botão verde _"Create pull request"_
