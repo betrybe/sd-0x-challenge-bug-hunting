@@ -1,4 +1,4 @@
-## Requisitos do projeto com Bugs
+## Requisitos testados do projeto com Bugs
 
 A seguir estão listados todos os requisitos do projeto. Lembre-se que, alguns testes estão quebrando devido aos bugs, assim que os bugs forem resolvidos os testes devem retornar sucesso. É possível que um bug dependa da resoluçao de outro bug.
 
@@ -10,7 +10,7 @@ A seguir estão listados todos os requisitos do projeto. Lembre-se que, alguns t
 ### 2. Testes do componente Header
 
   - O componente deve apresentar apenas um link ao ser renderizado;
-  -  Ao realizar uma consulta deve redirecionar para tela de "busca";
+  - Ao realizar uma consulta deve redirecionar para tela de "busca";
 
 ### 3. Testes do componente SearchResult
 
@@ -35,3 +35,10 @@ O que mais posso fazer para garantir que não sejam criados mais **bugs**?
     - Para ver a cobertura de testes, execute no terminal o comando `npm run test-coverage`.
 
 Após garantir a cobertura de testes, sinta-se livre para adicionar novas **features**, já que, sem bugs, podemos nos preoucupar mais em desenvolver novas funcionalidades!
+
+## Exemplos de features no backlog para futuro desenvolvimento!
+
+- Videos marcados como gostei;
+- Criar playlist de videos;
+- Armazenar historico de videos assistidos;
+- Videos marcados para assistir mais tarde;

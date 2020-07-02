@@ -4,7 +4,13 @@ Para ter acesso à `API` do youtube, enquanto desenvolve a aplicação, você pr
 
 A seguir você encontrará um passo a passo de como criar a chave de acesso à API.
 
-Para criar sua key, acesse o [Google Developers Console](https://console.developers.google.com/cloud-resource-manager).
+### Caso queira consultar a documentação sobre a API
+- [Youtube API](https://developers.google.com/youtube/v3/docs)
+
+
+### Para criar sua key
+- Acesse o [Google Developers Console](https://console.developers.google.com/cloud-resource-manager).
+
 
 - Após acessar o **Google Developers Console**, clique em `CRIAR PROJETO`.
  
